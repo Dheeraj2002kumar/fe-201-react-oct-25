@@ -135,13 +135,32 @@ properties & behavior (methods in an object)
 
 // ------------------------
 
-function Student(){
-    // this = Global object
-    // 2. this = {}
-    // ...
-    // 3. return this {}
+// function Student(name){
+//     // this = Global object
+//     // 2. this = {}
+//     // ...
+//     this.name = name;
+//     // 3. return this {}
+// }
+
+// Student();  // this = Global object
+// let s1 = new Student('A');
+// let s2 = new Student('B');
+// let s3 = new Student('C');
+// console.log(s1)
+// console.log(s2)
+// console.log(s3)
+
+
+
+// -----------------
+
+function Student(name){
+    this.name = name
 }
 
-Student();  // this = Global object
-let s1 = new Student();
-console.log(s1)
+let [s1, s2, s3] = [
+    { name: 'A'},
+    { name: 'B'},
+    { name: 'C'},
+].map(s => console.log(new Student(s.name)))
