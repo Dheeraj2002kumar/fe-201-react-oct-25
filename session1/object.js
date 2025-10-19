@@ -169,25 +169,47 @@ properties & behavior (methods in an object)
 
 // -------------------------------
 
-function Circle(radius, x, y){
-    // this = {}
-    this.radius = radius;
-    this.location = {
-        x: x,
-        y: y
+// function Circle(radius, x, y){
+//     // this = {}
+//     this.radius = radius;
+//     this.location = {
+//         x: x,
+//         y: y
+//     }
+
+//     this.draw = function(){
+//         console.log(this.location.x, this.location.y)
+//     }
+
+//     this.move = function(x, y){
+//         this.location.x = x;
+//         this.location.y = y;
+//     }
+// }
+
+// let c1 = new Circle(5, 0, 0); // {}
+// c1.draw()
+// c1.move(10, 10)
+// c1.draw()
+
+
+
+// -----------------------------
+
+class Person{
+    constructor(firstName, lastName, age){
+        this.firstName = firstName;
+        this.lastName = lastName
+        this.age = age
     }
 
-    this.draw = function(){
-        console.log(this.location.x, this.location.y)
-    }
-
-    this.move = function(x, y){
-        this.location.x = x;
-        this.location.y = y;
+    greeting(){
+        console.log('My name is', this.firstName)
     }
 }
 
-let c1 = new Circle(5, 0, 0); // {}
-c1.draw()
-c1.move(10, 10)
-c1.draw()
+let p1 = new Person('x')
+let p2 = new Person('y')
+console.log(p1.greeting === p2.greeting)
+p1.greeting()
+p2.greeting()
