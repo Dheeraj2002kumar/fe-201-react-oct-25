@@ -155,12 +155,39 @@ properties & behavior (methods in an object)
 
 // -----------------
 
-function Student(name){
-    this.name = name
+// function Student(name){
+//     this.name = name
+// }
+
+// let [s1, s2, s3] = [
+//     { name: 'A'},
+//     { name: 'B'},
+//     { name: 'C'},
+// ].map(s => console.log(new Student(s.name)))
+
+
+
+// -------------------------------
+
+function Circle(radius, x, y){
+    // this = {}
+    this.radius = radius;
+    this.location = {
+        x: x,
+        y: y
+    }
+
+    this.draw = function(){
+        console.log(this.location.x, this.location.y)
+    }
+
+    this.move = function(x, y){
+        this.location.x = x;
+        this.location.y = y;
+    }
 }
 
-let [s1, s2, s3] = [
-    { name: 'A'},
-    { name: 'B'},
-    { name: 'C'},
-].map(s => console.log(new Student(s.name)))
+let c1 = new Circle(5, 0, 0); // {}
+c1.draw()
+c1.move(10, 10)
+c1.draw()
