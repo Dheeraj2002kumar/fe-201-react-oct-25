@@ -1,7 +1,36 @@
 // Method & Contructor overriding
 // super keyword
 // classes can inherit from other Classes
+
+
+
+// ------------------------
 // class enable inheritance
+
+class Student{
+    constructor(name){
+        this.name = name;
+        // this.greeting = function(){
+        //     console.log('Hello !!')
+        // }
+    }
+
+    greeting(){
+        console.log('Hello !!')
+    }
+}
+
+let s1 = new Student('Jane')
+console.log(s1)
+s1.greeting()  // greeting ? xxxx -- Yes --- Yes -- !! 
+
+
+
+
+
+
+
+
 
 // ----------------------------------------------
 // How contructor function enable inheritance !
@@ -24,35 +53,35 @@
 
 // Student.prototype = {}  // by default this exists
 
-function Student(name){
-    // this = {}
-    this.name = name;
-    // this.greeting = greeting;
+// function Student(name){
+//     // this = {}
+//     this.name = name;
+//     // this.greeting = greeting;
 
-    // Object.setPrototypeOf(this, Student.prototype)
-    // return this
-}
+//     // Object.setPrototypeOf(this, Student.prototype)
+//     // return this
+// }
 
-Student.prototype.greeting = function(){
-    console.log("Hii !!")
-}
+// Student.prototype.greeting = function(){
+//     console.log("Hii !!")
+// }
 
-let s1 = new Student('Jane')  // {}
-// Object.setPrototypeOf(s1, parentObj);
+// let s1 = new Student('Jane')  // {}
+// // Object.setPrototypeOf(s1, parentObj);
 
-let s2 = new Student('John')
-// Object.setPrototypeOf(s2, parentObj);
+// let s2 = new Student('John')
+// // Object.setPrototypeOf(s2, parentObj);
 
-let s3 = new Student('Jack')
-// Object.setPrototypeOf(s3, parentObj);
+// let s3 = new Student('Jack')
+// // Object.setPrototypeOf(s3, parentObj);
 
-console.log(s1)
-console.log(s2)
-console.log(s3)
+// console.log(s1)
+// console.log(s2)
+// console.log(s3)
 
-s1.greeting() // greetingxxx --- Yes --- Student.prototype --- Yes
-s2.greeting()
-s3.greeting()
+// s1.greeting() // greetingxxx --- Yes --- Student.prototype --- Yes
+// s2.greeting()
+// s3.greeting()
 
 
 
