@@ -1,6 +1,32 @@
 // - Modules
 //     - Todo application
 
+function addTodo(arr, item, priority){
+
+}
+
+function clearTodo(arr, index){
+
+}
+
+function updateTodo(arr, index, newItem){
+
+}
+
+function getTodo(arr, index){
+    if (index !== undefined){
+        return arr[index]
+    }
+    return arr
+}
+
+const allTasks = getTodo(['Get juice', 'workout', 'study'])
+const firstTask = getTodo(allTasks, 0)
+console.log('>', firstTask)
+
+
+
+//---------------------------
 //  - Pure function
 //     - side effect - NO!!
             // anything which has relation with outside world
@@ -85,26 +111,26 @@
 // console.log(likeMap(x, 3))  // [3, 6, 9]
 
 
-function insertSum(arr){
-    // imparative way !!
-    // const a = []
-    // let s = 0
+// function insertSum(arr){
+//     // imparative way !!
+//     // const a = []
+//     // let s = 0
 
-    // for (let n of arr){
-    //     s = s + n
-    //     a.push(n)
-    // }
-    // a.push(s)
+//     // for (let n of arr){
+//     //     s = s + n
+//     //     a.push(n)
+//     // }
+//     // a.push(s)
 
-    // return a
+//     // return a
 
 
-    // declarative way!!
-    let s = arr.reduce((n, acc) => n + acc, 0)
-    return [...arr, s]
-}
+//     // declarative way!!
+//     let s = arr.reduce((n, acc) => n + acc, 0)
+//     return [...arr, s]
+// }
 
-console.log(insertSum([1, 2, 3]))  // [1, 2, 3, 6]
+// console.log(insertSum([1, 2, 3]))  // [1, 2, 3, 6]
 
 
 //     - HOF-- > Higher Order function
