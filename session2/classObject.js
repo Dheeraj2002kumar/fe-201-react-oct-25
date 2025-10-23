@@ -1,28 +1,124 @@
 // Method & Contructor overriding
 // super keyword
+
+// --------------------------------------
 // classes can inherit from other Classes
+
+// Youtube
+// name, dp, age, email, watchVideo(), likeVideo(), ....
+
+class Youtube{
+    constructor(name, email){
+        this.name = name;
+        this.email = email;
+    }
+
+    watchVideo(){
+        console.log('Watch video....4k!')
+    }
+}
+
+// Youtube.prototype = { watchVideos() {} }
+// Object.setPrototypeOf(y1, Youtube.prototype)
+// Object.setPrototypeOf(y2, Youtube.prototype)
+
+let y1 = new Youtube('Dheeraj', 'dheeraj@gamil.com')
+let y2 = new Youtube('Niharika', 'niharika@gmail.com')
+
+// console.log(y1)
+// console.log(y2)
+// y1.watchVideo();
+
+
+// inherit the property of Youtube to YoutubePremium class
+
+class YoutubePremium extends Youtube{
+
+    // constructor overriding
+    constructor(name, email, cc){
+        super(name, email); // super.constructor(name, email)
+        this.cc = cc
+    }
+
+    skipAds(){
+        console.log('Skip ads....')
+    }
+
+    // method overriding
+    watchVideo(){
+        this.skipAds()
+        // console.log("Watch video....")
+        super.watchVideo()
+    }
+}
+
+let yp1 = new YoutubePremium('Dheeraj', 'dheeraj@gmail.com', 1234) // {}
+// yp1 ----> YoutubePremium.prototype { skipAds } ---> Youtube.prototype { watchVideo }
+console.log(yp1)
+// yp1.skipAds()
+yp1.watchVideo()
+
+
+// Youtube Premium
+// name, dp, age, email, watchVideo(), likeVideo(), ....
+// + skipAds(), CCDetails
+
+// class YoutubePremium{
+//     constructor(name, email, cc){
+//         this.name = name
+//         this.email = email
+//         this.cc = cc
+//     }
+
+//     watchVideo(){
+//         console.log('watch video....')
+//     }
+
+//     skipAds(){
+//         console.log('Skip ads....')
+//     }
+// }
+
+// // YoutubePremium.prototype= { watchVideo(), skipAds() }
+// // Object.setPrototypeOf(yp1, YoutubePremium.prototype)
+// // Object.setPrototypeOf(yp2, YoutubePremium.prototype)
+
+// let yp1 = new YoutubePremium('Niraj', 'niraj@gmail.com', 1234)
+// let yp2 = new YoutubePremium('Saurabh', 'saurabh@gamil.com', 1234)
+
+// console.log(yp1)
+// console.log(yp2)
+
+// yp1.watchVideo();
+// yp1.skipAds()
+
+
+
+
+
+
 
 
 
 // ------------------------
 // class enable inheritance
 
-class Student{
-    constructor(name){
-        this.name = name;
-        // this.greeting = function(){
-        //     console.log('Hello !!')
-        // }
-    }
+// class Student{
+//     constructor(name){
+//         this.name = name;
+//         // this.greeting = function(){
+//         //     console.log('Hello !!')
+//         // }
+//     }
 
-    greeting(){
-        console.log('Hello !!')
-    }
-}
+//     greeting(){
+//         console.log('Hello !!')
+//     }
+// }
 
-let s1 = new Student('Jane')
-console.log(s1)
-s1.greeting()  // greeting ? xxxx -- Yes --- Yes -- !! 
+// let s1 = new Student('Jane')
+// console.log(s1)
+// s1.greeting()  // greeting ? xxxx -- Yes --- Yes -- !! 
 
 
 
