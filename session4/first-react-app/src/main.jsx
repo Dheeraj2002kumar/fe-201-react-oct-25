@@ -15,7 +15,7 @@ import { createRoot } from "react-dom/client";
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
-const paraText = "This is React Development... !!";
+// const paraText = "This is React Development... !!";
 
 // markup - javascript => jsx
 // const view = (
@@ -37,9 +37,10 @@ const paraText = "This is React Development... !!";
 
 // appearance & logic
 class Counter extends React.Component {
-  constructor() {
+  constructor(props) {
     console.log("constructor");
-    super();
+    super(props);
+    console.log("Props", props)
 
     // this.incHandler = () => {
     //   console.log("+1 clicked")
@@ -49,8 +50,21 @@ class Counter extends React.Component {
     //   console.log("-1 clicked")
     // }
 
+    this.count = this.props.c
+    // initialise state object inside constructor
+    this.state = {
+      count: this.props.c,
+    };
+
     this.clickHandler = (v) => {
       console.log(v, " clicked");
+      // this.count = this.count + v
+      // this.state.count = this.state.count + v;
+      // console.log("New count", this.state.count)
+
+      this.setState({
+        count: this.state.count + v,
+      })
     };
   }
 
@@ -59,21 +73,21 @@ class Counter extends React.Component {
   // }
 
   render() {
-    console.log("render");
+    console.log("render", this.state);
     return (
       <div>
-        <h1>0</h1>
+        <h1>{this.state.count}</h1>
         {/* <button onClick={this.incHandler}>+1</button>
         <button onClick={this.decHandler}>-1</button> */}
 
         <button
           onClick={(e) => {
-            this.clickHandler(1);
+            this.clickHandler(1 * this.props.step);
           }}
         >
-          +1
+          +{this.props.step}
         </button>
-        <button onClick={(e) => this.clickHandler(-1)}>-1</button>
+        <button onClick={(e) => this.clickHandler(-1 * this.props.step)}>-{this.props.step}</button>
       </div>
     );
   }
@@ -84,7 +98,11 @@ class Counter extends React.Component {
 
 root.render(
   <StrictMode>
-    <Counter />
+    <Counter c={50} step={5} y='Niharika'/>
+    <Counter c={150} step={35} y='Niharika'/>
+    <Counter c={250} step={55} y='Niharika'/>
+    {/* <Counter c={500} x={10} y='Niharika'/>
+    <Counter c={5000} x={10} y='Niharika'/> */}
   </StrictMode>
 );
 
