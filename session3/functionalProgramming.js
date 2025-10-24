@@ -2,15 +2,35 @@
 //     - Todo application
 
 function addTodo(arr, item, priority){
-
+    if (priority === 'high'){
+        return [item, ...arr]
+    }
+    return  [...arr, item]
 }
 
 function clearTodo(arr, index){
-
+    const a = [...arr]
+    a[index] = null
+    return a
 }
 
 function updateTodo(arr, index, newItem){
+    // arr[index] = newItem
+    // return arr
 
+    // let a = []
+    // for (i = 0; i < arr.length; i++){
+    //     if (i === index){
+    //         a.push(newItem)
+    //     } else{
+    //         a.push(arr[i])
+    //     }
+    // }
+    // return a
+
+    const a = [...arr]
+    a[index] = newItem
+    return a
 }
 
 function getTodo(arr, index){
@@ -20,10 +40,25 @@ function getTodo(arr, index){
     return arr
 }
 
-const allTasks = getTodo(['Get juice', 'workout', 'study'])
-const firstTask = getTodo(allTasks, 0)
+let allTasks = getTodo(['Get juice', 'workout', 'study'])
+
+allTasks = updateTodo(allTasks, 0, 'Get Water')
+
+let firstTask = getTodo(allTasks, 0)
 console.log('>', firstTask)
 
+allTasks = clearTodo(allTasks, 0)
+
+firstTask = getTodo(allTasks, 0)
+console.log('>', firstTask)
+
+// allTasks = addTodo(allTasks, 'sleep', 'high')
+allTasks = addTodo(allTasks, 'sleep')
+
+// firstTask = getTodo(allTasks, 0)
+firstTask = getTodo(allTasks)
+
+console.log('>', firstTask)
 
 
 //---------------------------
